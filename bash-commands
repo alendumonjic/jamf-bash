@@ -1,0 +1,61 @@
+# This is a list of macOS commands and strings I've recently used in the workplace.
+
+
+# Automatically connect to WiFi.
+'networksetup -setairportnetwork en0 [SSID] [password]'
+
+
+# Reset AirPlay when experiencing issues with display.
+'rm -r ~/Library/Preferences/com.apple.airplay.plist'
+
+
+# Block macOS Catalina Security Update.
+ 'softwareupdate --ignore "MacOS Catalina 10.15.4 Supplemental Update"'
+ 
+ 
+ # Block macOS Mojave Security Update.
+ 'softwareupdate --ignore "Security Update 2020-002"'
+ 
+ 
+ # Reset ignore of macOS updates.
+'sudo softwareupdate —reset-ignored'
+
+ 
+# Reboot macOS into Diagnostic Mode from Terminal.
+'nvram internet-recovery-mode=DiagsModeDisk ; reboot'
+
+
+# Reboot macOS into Internet Recovery Mode from Terminal.
+'nvram internet-recovery-mode=RecoveryModeNetwork ; reboot'
+
+
+# Copy Mozilla Firefox saved bookmarks, passwords, extensions, browser preferences and user preferences into a folder titled "Firefox."
+ditto ~/Library/Application\ Support/Firefox/Profiles/*.default*/{bookmarkbackups,places.sqlite,key4.db,logins.json,prefs.js,handlers.json} ~/Desktop/Firefox
+
+
+# Install macOS Mojave from /Applications folder.
+ '/Applications/Install\ macOS\ Mojave.app/Contents/Resources/startosinstall --rebootdelay 60 --nointeraction --agreetolicense &'
+ 
+ 
+ # Enable secure token.
+  'sudo diskutil apfs updatePreboot /'
+  
+  
+  # Erase and install macoS Mojave.
+  '/Applications/Install\ macOS\ Mojave.app/Contents/Resources/startosinstall --eraseinstall --agreetolicense --newvolumename "Macintosh HD"'
+  
+  
+  # Launch native macOS Screen Sharing application.
+  'Open /System/Library/CoreServices/Applications/Screen\ Sharing.app'
+  
+  
+  # Optimize Mac by removing extraneous RAM and caching
+  'sudo purge'
+  
+  
+  # Grant admin rights in printer preferences pane.
+  'sudo dseditgroup -o edit -n /Local/Default -a everyone -t group lpadmin'
+  
+  
+  # Kill Google Chrome and trash caches, which cause issues on macOS
+  'pkill "Google Chrome" ; rm -r Library/Caches/com.google.Chrome/'
